@@ -37,6 +37,7 @@ public class GUIController extends Observable implements View,Initializable{
 	StringProperty Counterr;
 	Timer t;
 	String musicFile="./resources/media/trololo.mp3";
+	private KeysDefinitions keysDefinitions = new KeysDefinitions();
 
 	public void setWarehouse(char[][] map) {
 		this._map=map;
@@ -108,7 +109,7 @@ public class GUIController extends Observable implements View,Initializable{
 	public void move(KeyEvent event) {
 
 		if(_map!=null){
-
+			
 					if(event.getCode() == KeyCode.UP){
 						setChanged();
 						notifyObservers("move up");
