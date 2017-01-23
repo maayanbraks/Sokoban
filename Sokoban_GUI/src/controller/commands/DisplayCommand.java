@@ -24,7 +24,6 @@ public class DisplayCommand extends GeneralCommand{
 	public void execute(){
 		char[][] map=_model.getLevel().toChar();
 		_view.setCounter(_model.getLevel().getCounter());
-		System.out.println(_model.getLevel().getCounter());
 		_view.setWarehouse(map);
 		//WarehouseDisplayer warehouseDisplayer= new WarehouseDisplayer();
 		//warehouseDisplayer.setWarehouse(map);

@@ -32,10 +32,10 @@ public class MyTextLevelSaver implements LevelSaver{
 			buffer.newLine();
 			for (int j=0;j<lvl.getWidth();j++) {
 				itm=lvl.getItemInPlace(new Position2D(i, j));
-
-				if(itm.getPos().isWasTarget() && (itm.getType().compareTo("Actor")==0))
+				
+				if((itm.getPos().isWasTarget()) &&((itm.getType().compareTo("Actor")==0)))
 						buffer.write('$');
-				else if(itm.getPos().isWasTarget() && (itm.getType().compareTo("Box")==0))
+				else if((itm.getPos().isWasTarget()) && ((itm.getType().compareTo("Box")==0)))
 						buffer.write('?');
 				else
 					buffer.write(lvl.getMap()[i][j].getCh());

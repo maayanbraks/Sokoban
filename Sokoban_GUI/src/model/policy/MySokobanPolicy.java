@@ -83,7 +83,7 @@ public class MySokobanPolicy {
 	*/
 	public boolean isFinished() {// this func checking if the game finished
 		for (int i=0;i<_lvl.getTargetBoxes().size();i++){
-			if (_lvl.getItemInPlace(_lvl.getTargetBoxes().get(i).getPos()).getType()!="Box")
+			if ((_lvl.getItemInPlace(_lvl.getTargetBoxes().get(i).getPos()) .getType())!="Box")
 				return false;
 		}
 		return true;

@@ -63,8 +63,10 @@ public class MyTextLevelLoader implements LevelLoader {
 				itemMap[i][j].setPos(new Position2D(i,j));
 				if(itemMap[i][j].getType().compareTo("TargetBox")==0 || 
 						charMap[i][j]=='?' || charMap[i][j]=='$')//was target under the item
+				{
 					itemMap[i][j].setPos( new Position2D(i, j, true) );
-					
+					newLevel.addTargetBoxToArray(new TargetBox(new Position2D(i, j, true)));
+				}
 				ItemAdder ia=new ItemAdder(newLevel, itemMap[i][j]);
 				newLevel= ia.addItem(itemMap[i][j].getCh());
 			}

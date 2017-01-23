@@ -37,6 +37,7 @@ public class LoadCommand extends GeneralCommand{
 	public void execute() {
 		LevelLoaderCreator lc=_hm.get(_typeFile);
 		_model.load(lc);
+		System.out.println(_model.getLevel().getBoxes().size());
 
 		/*
 		if (lc==null){

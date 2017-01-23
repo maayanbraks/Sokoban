@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_121" class="java.beans.XMLDecoder">
+ <object class="common.Level2D" id="Level2D0">
+  <void property="actors">
+   <void method="add">
+    <object class="model.data.Actor" id="Actor0">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="boxes">
+   <void method="add">
+    <object class="model.data.Box" id="Box0">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Box" id="Box1">
+     <void property="pos">
+      <void property="wasTarget">
+       <boolean>true</boolean>
+      </void>
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Box" id="Box2">
+     <void property="pos">
+      <void property="wasTarget">
+       <boolean>true</boolean>
+      </void>
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="counter">
+   <int>63</int>
+  </void>
+  <void property="height">
+   <int>9</int>
+  </void>
+  <void property="spaces">
+   <void method="add">
+    <object class="model.data.Space" id="Space0"/>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space1">
+     <void property="pos">
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space2">
+     <void property="pos">
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space3">
+     <void property="pos">
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space4">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space5">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space6">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space7">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space8">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space9">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space10">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space11">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space12">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space13">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space14">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space15">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space16">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space17">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space18">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space19">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space20">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space21">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space22">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space23">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space24">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space25">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space26">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space27">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Space" id="Space28">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="targetBoxes">
+   <void method="add">
+    <object class="model.data.TargetBox" id="TargetBox0">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.TargetBox" id="TargetBox1">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.TargetBox" id="TargetBox2">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="walls">
+   <void method="add">
+    <object class="model.data.Wall" id="Wall0">
+     <void property="pos">
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall1">
+     <void property="pos">
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall2">
+     <void property="pos">
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall3">
+     <void property="pos">
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall4">
+     <void property="pos">
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall5">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall6">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall7">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall8">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall9">
+     <void property="pos">
+      <void property="x">
+       <int>1</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall10">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall11">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall12">
+     <void property="pos">
+      <void property="x">
+       <int>2</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall13">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall14">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall15">
+     <void property="pos">
+      <void property="x">
+       <int>3</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall16">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall17">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall18">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall19">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall20">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall21">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall22">
+     <void property="pos">
+      <void property="x">
+       <int>4</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall23">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall24">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall25">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall26">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall27">
+     <void property="pos">
+      <void property="x">
+       <int>5</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall28">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall29">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall30">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall31">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall32">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall33">
+     <void property="pos">
+      <void property="x">
+       <int>6</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall34">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall35">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall36">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>5</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall37">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>6</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall38">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>7</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall39">
+     <void property="pos">
+      <void property="x">
+       <int>7</int>
+      </void>
+      <void property="y">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall40">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall41">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>1</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall42">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>2</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall43">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>3</int>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.data.Wall" id="Wall44">
+     <void property="pos">
+      <void property="x">
+       <int>8</int>
+      </void>
+      <void property="y">
+       <int>4</int>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="width">
+   <int>9</int>
+  </void>
+ </object>
+ <object idref="Space0"/>
+ <object idref="Wall0"/>
+ <object idref="Wall1"/>
+ <object idref="Wall2"/>
+ <object idref="Wall3"/>
+ <object idref="Wall4"/>
+ <object idref="Space1"/>
+ <object idref="Space2"/>
+ <object idref="Space3"/>
+ <object idref="Space4"/>
+ <object idref="Wall5"/>
+ <object class="model.data.Space" id="Space29">
+  <void property="pos">
+   <void property="x">
+    <int>1</int>
+   </void>
+   <void property="y">
+    <int>2</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space30">
+  <void property="pos">
+   <void property="x">
+    <int>1</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space31">
+  <void property="pos">
+   <void property="x">
+    <int>1</int>
+   </void>
+   <void property="y">
+    <int>4</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall6"/>
+ <object idref="Wall7"/>
+ <object idref="Wall8"/>
+ <object idref="Wall9"/>
+ <object idref="Space8"/>
+ <object idref="Wall10"/>
+ <object class="model.data.Space" id="Space32">
+  <void property="pos">
+   <void property="x">
+    <int>2</int>
+   </void>
+   <void property="y">
+    <int>2</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space33">
+  <void property="pos">
+   <void property="x">
+    <int>2</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space34">
+  <void property="pos">
+   <void property="x">
+    <int>2</int>
+   </void>
+   <void property="y">
+    <int>4</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall11"/>
+ <object class="model.data.Space" id="Space35">
+  <void property="pos">
+   <void property="x">
+    <int>2</int>
+   </void>
+   <void property="y">
+    <int>6</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Actor0"/>
+ <object idref="Wall12"/>
+ <object idref="Space14"/>
+ <object idref="Wall13"/>
+ <object idref="Wall14"/>
+ <object class="model.data.Space" id="Space36">
+  <void property="pos">
+   <void property="x">
+    <int>3</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space37">
+  <void property="pos">
+   <void property="x">
+    <int>3</int>
+   </void>
+   <void property="y">
+    <int>4</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space38">
+  <void property="pos">
+   <void property="x">
+    <int>3</int>
+   </void>
+   <void property="y">
+    <int>5</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space39">
+  <void property="pos">
+   <void property="x">
+    <int>3</int>
+   </void>
+   <void property="y">
+    <int>6</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.TargetBox" id="TargetBox3">
+  <void property="pos">
+   <void property="x">
+    <int>3</int>
+   </void>
+   <void property="y">
+    <int>7</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall15"/>
+ <object idref="Wall16"/>
+ <object idref="Wall17"/>
+ <object idref="Wall18"/>
+ <object class="model.data.Space" id="Space40">
+  <void property="pos">
+   <void property="x">
+    <int>4</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall19"/>
+ <object idref="Wall20"/>
+ <object idref="Wall21"/>
+ <object idref="Box1"/>
+ <object idref="Wall22"/>
+ <object idref="Wall23"/>
+ <object idref="Space20"/>
+ <object idref="Box0"/>
+ <object class="model.data.Space" id="Space41">
+  <void property="pos">
+   <void property="x">
+    <int>5</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall24"/>
+ <object idref="Wall25"/>
+ <object idref="Wall26"/>
+ <object idref="Box2"/>
+ <object idref="Wall27"/>
+ <object idref="Wall28"/>
+ <object class="model.data.Space" id="Space42">
+  <void property="pos">
+   <void property="x">
+    <int>6</int>
+   </void>
+   <void property="y">
+    <int>1</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space43">
+  <void property="pos">
+   <void property="x">
+    <int>6</int>
+   </void>
+   <void property="y">
+    <int>2</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space44">
+  <void property="pos">
+   <void property="x">
+    <int>6</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall29"/>
+ <object idref="Wall30"/>
+ <object idref="Wall31"/>
+ <object idref="Wall32"/>
+ <object idref="Wall33"/>
+ <object idref="Wall34"/>
+ <object class="model.data.Space" id="Space45">
+  <void property="pos">
+   <void property="x">
+    <int>7</int>
+   </void>
+   <void property="y">
+    <int>1</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space46">
+  <void property="pos">
+   <void property="x">
+    <int>7</int>
+   </void>
+   <void property="y">
+    <int>2</int>
+   </void>
+  </void>
+ </object>
+ <object class="model.data.Space" id="Space47">
+  <void property="pos">
+   <void property="x">
+    <int>7</int>
+   </void>
+   <void property="y">
+    <int>3</int>
+   </void>
+  </void>
+ </object>
+ <object idref="Wall35"/>
+ <object idref="Wall36"/>
+ <object idref="Wall37"/>
+ <object idref="Wall38"/>
+ <object idref="Wall39"/>
+ <object idref="Wall40"/>
+ <object idref="Wall41"/>
+ <object idref="Wall42"/>
+ <object idref="Wall43"/>
+ <object idref="Wall44"/>
+ <object idref="Space25"/>
+ <object idref="Space26"/>
+ <object idref="Space27"/>
+ <object idref="Space28"/>
+</java>

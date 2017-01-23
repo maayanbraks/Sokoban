@@ -4,8 +4,11 @@ import java.io.File;
 import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
-
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +25,7 @@ import javafx.stage.FileChooser;
 public class GUIController extends Observable implements View,Initializable{
 
 	char [][] _map=null;
-
+	int count;
 	@FXML
 	WarehouseDisplayer warehouseDisplayer;
 	@FXML
@@ -31,7 +34,8 @@ public class GUIController extends Observable implements View,Initializable{
 	Text timer;
 	@FXML
 	Text comment;
-
+	StringProperty Counterr;
+	Timer t;
 	String musicFile="./resources/media/trololo.mp3";
 
 	public void setWarehouse(char[][] map) {
@@ -39,7 +43,31 @@ public class GUIController extends Observable implements View,Initializable{
 		warehouseDisplayer.setWarehouse(map);
 		warehouseDisplayer.redraw();
 	}
-
+	
+	
+	public void startCounter()
+	{
+		
+		t=new  Timer();
+		t.scheduleAtFixedRate(new TimerTask() {
+					
+					@Override
+					public void run() {
+						setTimerCounter(getTimerCounter()+1);
+					}
+				}, 0, 1000);
+	}
+	
+	public void setTimerCounter (int num) {
+		this.count=num;
+		if (num==0)
+			this.Counterr.set(String.valueOf(num));
+		else 	
+			this.Counterr.set(""+count);
+	}
+	public int getTimerCounter() {
+		return count;
+	}
 	public void setCounter(int counter) {
 		String str=String.valueOf(counter);
 		this.counter.setText(str);
@@ -53,6 +81,9 @@ public class GUIController extends Observable implements View,Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Counterr=new SimpleStringProperty();
+		this.setTimerCounter(0);
+		timer.textProperty().bind(Counterr);
 
 //music
 		Media song=new Media(new File(musicFile).toURI().toString());
@@ -109,6 +140,14 @@ public class GUIController extends Observable implements View,Initializable{
 	}
 
 	public void load(){
+		this.comment.setText("SOKOBAN");//////////this is ok?!!??!!?
+		if (_map!=null) {//fixxxxxxxxxxxxxxxxx t.cancel
+			System.out.println("SAdsad");
+			t.cancel();
+
+		}
+		this.setTimerCounter(0);
+		
 		FileChooser fc=new FileChooser();
 		fc.setTitle("Load Level");
 		fc.setInitialDirectory(new File("./resources/levels"));
@@ -122,6 +161,7 @@ public class GUIController extends Observable implements View,Initializable{
 
 			setChanged();
 			notifyObservers("load ./resources/levels/"+path);
+			this.startCounter();
 
 		}
 		else

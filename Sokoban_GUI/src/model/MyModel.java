@@ -85,7 +85,6 @@ public class MyModel extends Observable implements Model{
 
 	@Override
 	public void load(LevelLoaderCreator lc) {
-		System.out.println("load func in myModel");
 		if (lc==null){
 			this.setLevel(new Level2D());
 			System.out.println("There is a problem with level loader./n" +
