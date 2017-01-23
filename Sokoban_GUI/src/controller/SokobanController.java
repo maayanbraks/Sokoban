@@ -12,6 +12,7 @@ import java.util.Observer;
 import controller.commands.CommandCreator;
 import controller.commands.DisplayCommand;
 import controller.commands.ExitCommand;
+import controller.commands.FinishCommand;
 import controller.commands.GeneralCommand;
 import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
@@ -49,6 +50,7 @@ public class SokobanController  implements Observer {
 		_hm.put("display",new DisplayCommandCreator());
 		_hm.put("move",new MoveCommandCreator());
 		_hm.put("save",new SaveCommandCreator());
+		_hm.put("finish",new FinishCommandCreator());
 		_hm.put("exit",new ExitCommandCreator());
 	}
 
@@ -113,6 +115,12 @@ public class SokobanController  implements Observer {
 		{
 			public GeneralCommand createCommand() {
 				return new ExitCommand(_model);
+			}
+		}
+		private class FinishCommandCreator implements CommandCreator
+		{
+			public GeneralCommand createCommand() {
+				return new FinishCommand(_view,_model);
 			}
 		}
 

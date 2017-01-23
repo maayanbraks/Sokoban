@@ -28,10 +28,6 @@ public class MoveCommand extends GeneralCommand{
 	public MoveCommand(String direction, Model model) {
 		super(model);
 		_direction=direction;
-
-		//	_actor=_model.getLevel().getActors().get(0);
-		//	_old=new Position2D(_actor.getPos());
-		//	_msp=new MySokobanPolicy(_old,_model.getLevel());
 	}
 
 

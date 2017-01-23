@@ -21,7 +21,7 @@ import javafx.stage.FileChooser;
 
 public class GUIController extends Observable implements View,Initializable{
 
-	char [][] _map;
+	char [][] _map=null;
 
 	@FXML
 	WarehouseDisplayer warehouseDisplayer;
@@ -29,6 +29,8 @@ public class GUIController extends Observable implements View,Initializable{
 	Text counter;
 	@FXML
 	Text timer;
+	@FXML
+	Text comment;
 
 	String musicFile="./resources/media/trololo.mp3";
 
@@ -44,7 +46,10 @@ public class GUIController extends Observable implements View,Initializable{
 	}
 
 
-
+	public void setComment(String comment) {
+		String str=String.valueOf(comment);
+		this.comment.setText(str);
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -59,35 +64,41 @@ public class GUIController extends Observable implements View,Initializable{
 		warehouseDisplayer.setWarehouse(_map);
 		warehouseDisplayer.addEventFilter(MouseEvent.MOUSE_CLICKED, (e)->warehouseDisplayer.requestFocus() );
 		warehouseDisplayer.setOnKeyPressed(new EventHandler<KeyEvent>() {
-		@Override
-			public void handle(KeyEvent event) {
 
-				if(event.getCode() == KeyCode.UP){
-					setChanged();
-					notifyObservers("move up");
-					System.out.println(counter);
+			@Override
+				public void handle(KeyEvent event) {
+				move(event);
 				}
+			});
 
-				else if(event.getCode() == KeyCode.DOWN){
-					setChanged();
-					notifyObservers("move down");
-					System.out.println(counter);
+	}
+
+	@Override
+	public void move(KeyEvent event) {
+
+		if(_map!=null){
+
+					if(event.getCode() == KeyCode.UP){
+						setChanged();
+						notifyObservers("move up");
+					}
+
+					else if(event.getCode() == KeyCode.DOWN){
+						setChanged();
+						notifyObservers("move down");
+					}
+
+					else if(event.getCode() == KeyCode.LEFT){
+						setChanged();
+						notifyObservers("move left");
+					}
+
+					else if(event.getCode() == KeyCode.RIGHT){
+						setChanged();
+						notifyObservers("move right");
+					}
+
 				}
-
-				else if(event.getCode() == KeyCode.LEFT){
-					setChanged();
-					notifyObservers("move left");
-					System.out.println(counter);
-				}
-
-				else if(event.getCode() == KeyCode.RIGHT){
-					setChanged();
-					notifyObservers("move right");
-					System.out.println(counter);
-				}
-
-			}
-		});
 	}
 
 
@@ -141,9 +152,11 @@ public class GUIController extends Observable implements View,Initializable{
 
 
 	@Override
-	public void Exit() {
-		// TODO Auto-generated method stub
+	public void exit() {
+		setChanged();
+		notifyObservers("exit");
 
 	}
+
 
 }

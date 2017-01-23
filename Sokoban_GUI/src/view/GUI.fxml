@@ -6,21 +6,23 @@
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<!-- <?import view.WarehouseDisplayer?> -->
+<?import view.WarehouseDisplayer?>
 
-<BorderPane prefHeight="381.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GUIController">
+<BorderPane prefHeight="477.0" prefWidth="511.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GUIController">
    <center>
    </center>
    <center>
-<!-- <WarehouseDisplayer   fx:id="warehouseDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" actorFileName="./resources/images/mario.png" boxFileName="./resources/images/box.png" spaceFileName="./resources/images/space2.png" targetFileName="./resources/images/target_green.png" wallFileName="./resources/images/wall.png" backgroundFileName="./resources/images/background.png"/> -->
+<WarehouseDisplayer  fx:id="warehouseDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" actorFileName="./resources/images/mario.png" boxFileName="./resources/images/box.png" spaceFileName="./resources/images/space2.png" targetFileName="./resources/images/target_green.png" wallFileName="./resources/images/wall.png" backgroundFileName="./resources/images/background.png"/>
    </center>
    <right>
       <AnchorPane prefHeight="356.0" prefWidth="47.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" textAlignment="CENTER" wrappingWidth="52.484375">
+            <Text layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" textAlignment="CENTER" wrappingWidth="52.484375">
                <font>
                   <Font name="Aharoni Bold" size="18.0" />
                </font>
@@ -51,7 +53,7 @@
                   <MenuItem mnemonicParsing="false" text="New Game" />
                   <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
                   <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
-              <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -73,4 +75,21 @@
    <left>
       <AnchorPane prefHeight="174.0" prefWidth="53.0" BorderPane.alignment="CENTER" />
    </left>
+   <bottom>
+      <Text fx:id="comment" strokeType="INSIDE" strokeWidth="0.0" text="SOKOBAN" textAlignment="CENTER" wrappingWidth="238.6337890625" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <fill>
+            <RadialGradient centerX="0.43333333333333335" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#403b3b" />
+                  <Stop color="#403b3b" offset="0.007662835249042145" />
+                  <Stop color="#107507" offset="0.664889204882095" />
+                  <Stop color="#0d7506" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+   </bottom>
 </BorderPane>

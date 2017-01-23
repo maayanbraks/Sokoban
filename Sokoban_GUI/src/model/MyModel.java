@@ -34,45 +34,54 @@ public class MyModel extends Observable implements Model{
 	@Override
 	public void move(Position2D dest) {
 
+
+
 		Actor actor=_lvl.getActors().get(0);
 		Position2D old=actor.getPos();
 
 
 		_msp=new MySokobanPolicy(old,getLevel());
 
+		if (!(_msp.isFinished())){
 
-		if(_msp.check(dest)){ //our POLICY
-			Item itmInDest=getLevel().getItemInPlace(dest);//destination item
-			dest.setWasTarget(getLevel().getItemInPlace(itmInDest.getPos()).getPos().isWasTarget());
+			if(_msp.check(dest)){ //our POLICY
+				Item itmInDest=getLevel().getItemInPlace(dest);//destination item
+				dest.setWasTarget(getLevel().getItemInPlace(itmInDest.getPos()).getPos().isWasTarget());
 
-			if((itmInDest.getType().compareTo("Box"))==0){
-				Position2D boxDest = new Position2D(_msp.newPos(dest));
-				boxDest.setWasTarget(getLevel().getItemInPlace(boxDest).getPos().isWasTarget());
-				((Box)itmInDest).move(dest, boxDest, getLevel());
+				if((itmInDest.getType().compareTo("Box"))==0){
+					Position2D boxDest = new Position2D(_msp.newPos(dest));
+					boxDest.setWasTarget(getLevel().getItemInPlace(boxDest).getPos().isWasTarget());
+					((Box)itmInDest).move(dest, boxDest, getLevel());
+				}
+				actor.move(old, dest,getLevel());
+
+				this._lvl.setCounter(this._lvl.getCounter()+1);
+				//System.out.println(this._lvl.getCounter());
 			}
-			actor.move(old, dest,getLevel());
+			else{
+				System.out.println("You can't move there!\n" +
+						"Please try again according the rules:\n" +
+						_msp.getPolicy());
+			}
 
-			this._lvl.setCounter(this._lvl.getCounter()+1);
-			//System.out.println(this._lvl.getCounter());
-		}
-		else{
-			System.out.println("You can't move there!\n" +
-					"Please try again according the rules:\n" +
-					_msp.getPolicy());
-		}
-
-		this.setChanged();
-		this.notifyObservers("display");
-
-
-		if (_msp.isFinished()){
-			System.out.println("\n"
-					+ "WOW!!\n"
-					+ "You have finished the map!");
 			this.setChanged();
-			this.notifyObservers("exit");
+			this.notifyObservers("display");
+
+
+
+			if (_msp.isFinished()){
+				System.out.println("\n"
+						+ "WOW!!\n"
+						+ "You have finished the map!");
+
+				this.setChanged();
+				this.notifyObservers("finish");
+			}
 		}
 	}
+
+
+
 
 	@Override
 	public void load(LevelLoaderCreator lc) {
@@ -110,7 +119,7 @@ public class MyModel extends Observable implements Model{
 
 	@Override
 	public void exit() {
-		System.out.println("Exiting program,TY");
+		//System.out.println("Exiting program,TY");
 		System.out.close();
 
 		try {
