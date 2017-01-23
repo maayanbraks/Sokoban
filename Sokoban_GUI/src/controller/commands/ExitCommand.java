@@ -15,6 +15,7 @@ public class ExitCommand extends GeneralCommand{
 	/**
 	* C'TOR
 	*/
+	
 	public ExitCommand(Model model) {
 		super(model);
 	}
