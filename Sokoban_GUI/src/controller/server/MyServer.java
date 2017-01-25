@@ -6,8 +6,20 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 
 public class MyServer {
-	private boolean stop=false;
-	private ClientHandler ch;
+	private boolean stop;
+	private MyClientHandler ch;
+	private boolean hasClient;
+	private int port;
+
+
+	public MyServer(int port) {
+		this.port=port;
+		this.ch=new MyClientHandler();
+		this.stop=false;
+		this.hasClient=false;
+
+
+	}
 
 	private void runServer() throws Exception {
 		ServerSocket server=new ServerSocket(1234);//port
@@ -15,13 +27,14 @@ public class MyServer {
 		while(!this.stop){
 			try{
 				Socket aClient=server.accept(); // blocking call
+				this.hasClient=true;
 				ch.handleClient(aClient.getInputStream(), aClient.getOutputStream());
 				aClient.getInputStream().close();
 				aClient.getOutputStream().close();
 				aClient.close();
 
 			}catch(SocketTimeoutException e) {
-				System.out.println("SocketTimeoutException - MyServer - run server");
+				//System.out.println("SocketTimeoutException - MyServer - run server");
 			}
 		}
 		server.close(); //we should wait for all threads before closing!
@@ -40,8 +53,14 @@ public class MyServer {
 		}).start();
 	}
 
+
 	public void stop(){
 		this.ch.stop();
 		this.stop=true;
+	}
+
+
+	public MyClientHandler getClient() {
+		return this.ch;
 	}
 }

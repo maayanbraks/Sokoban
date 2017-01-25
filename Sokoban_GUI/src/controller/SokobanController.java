@@ -17,6 +17,7 @@ import controller.commands.GeneralCommand;
 import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
 import controller.commands.SaveCommand;
+import controller.server.MyServer;
 import model.Model;
 import model.MyModel;
 import view.View;
@@ -27,11 +28,11 @@ public class SokobanController  implements Observer {
 	private HashMap<String,CommandCreator> _hm;
 	private String _command;
 	private String _info;
-	//Level2D _lvl;
 
 	Model _model;
 	View _view;
 	Controller _controller;
+	public MyServer _server;
 
 	/**
 	* C'TOR
@@ -39,9 +40,15 @@ public class SokobanController  implements Observer {
 	public SokobanController(Model model,View view){
 		this._model=model;
 		this._view=view;
-		_controller = new Controller();
-		_controller.start();
+		this._controller = new Controller();
+		this._controller.start();
+		int port=1234;//POERRRTTTTTTTTTTTTTTTTTTTTTTTTT//////////////////////////////////////////
+		if(port>=0){
+			this._server=new MyServer(port);
+			this._server.getClient().addObserver(this);
+		}
 		initCommands();
+
 	}
 
 	protected void initCommands() {

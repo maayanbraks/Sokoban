@@ -81,12 +81,11 @@ public class GUIController extends Observable implements View,Initializable{
 
 		t=new  Timer();
 		t.scheduleAtFixedRate(new TimerTask() {
-
-					@Override
-					public void run() {
-						setTimerCounter(getTimerCounter()+1);
-					}
-				}, 0, 1000);
+			@Override
+			public void run() {
+				setTimerCounter(getTimerCounter()+1);
+			}
+		}, 0, 1000);
 	}
 
 
