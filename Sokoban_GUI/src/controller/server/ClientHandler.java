@@ -8,4 +8,5 @@ public interface ClientHandler {
 
 	void handleClient(InputStream inFromClient, OutputStream outToClient) throws IOException;
 	void stop();
+	void addMsg(String msg)  throws InterruptedException;
 }

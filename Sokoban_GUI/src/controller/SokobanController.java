@@ -17,6 +17,7 @@ import controller.commands.GeneralCommand;
 import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
 import controller.commands.SaveCommand;
+import controller.commands.ServerDisplayCommand;
 import controller.server.MyServer;
 import model.Model;
 import model.MyModel;
@@ -42,7 +43,7 @@ public class SokobanController  implements Observer {
 		this._view=view;
 		this._controller = new Controller();
 		this._controller.start();
-		int port=1234;//POERRRTTTTTTTTTTTTTTTTTTTTTTTTT//////////////////////////////////////////
+		int port=1111;//POERRRTTTTTTTTTTTTTTTTTTTTTTTTT//////////////////////////////////////////
 		if(port>=0){
 			this._server=new MyServer(port);
 			this._server.getClient().addObserver(this);
@@ -59,13 +60,16 @@ public class SokobanController  implements Observer {
 		_hm.put("save",new SaveCommandCreator());
 		_hm.put("finish",new FinishCommandCreator());
 		_hm.put("exit",new ExitCommandCreator());
+		
+		_hm.put("serverDisplay", new ServerDisplayCommandCreator());
 	}
 
 	/**
 	* Separate the string to command and info about the command. Create the command
 	* @param str The command string (from Cli)
+	 * @throws InterruptedException 
 	*/
-	public void createCommandGeneral(String str){
+	public void createCommandGeneral(String str) throws InterruptedException{
 		String[] parts=str.split(" ");
 		this._command=parts[0];
 		if(parts.length>1)
@@ -73,18 +77,30 @@ public class SokobanController  implements Observer {
 		CommandCreator cc=_hm.get(this._command);
 
 		if (cc==null){
-			this._model.setLevel(null);
+			_server.setMsgToClient("Unknown command!!!!!");
 		}
 		else{
+			_server.setMsgToClient("Command accept!!! :) ");
 			GeneralCommand gc=cc.createCommand();
 			_controller.insertCommand(gc);
-
 		}
 	}
 
-
 	public void update(Observable o, Object arg) {
-		this.createCommandGeneral((String)arg);
+		
+		String str="";
+		str=(String)arg;
+		//_view.load();
+	//	System.out.println(arg + "Update");
+		
+		if ( (o==_server.getClient()) && (str.compareTo("display"))==0 )
+			str="serverDisplay";
+			
+		try {
+			this.createCommandGeneral(str);
+		} catch (InterruptedException e) {	}
+		
+		
 	}
 
 
@@ -128,6 +144,13 @@ public class SokobanController  implements Observer {
 		{
 			public GeneralCommand createCommand() {
 				return new FinishCommand(_view,_model);
+			}
+		}
+		
+		private class ServerDisplayCommandCreator implements CommandCreator
+		{
+			public GeneralCommand createCommand() {
+				return new ServerDisplayCommand(_model,_server);
 			}
 		}
 

@@ -64,6 +64,7 @@ public class GUIController extends Observable implements View,Initializable{
 	Stage _primaryStage;
 	@FXML
 	BorderPane bp;
+	boolean isTimerOn;
 
 
 
@@ -114,6 +115,7 @@ public class GUIController extends Observable implements View,Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		isTimerOn=false;
 		CounterTimer=new SimpleStringProperty();
 		this.setTimerCounter(0);
 		timer.textProperty().bind(CounterTimer);
@@ -202,6 +204,7 @@ public class GUIController extends Observable implements View,Initializable{
 			setChanged();
 			notifyObservers("load ./resources/levels/"+path);
 			this.startCounter();
+			isTimerOn=true;
 
 		}
 		else
@@ -248,7 +251,8 @@ public class GUIController extends Observable implements View,Initializable{
 	}
 
 	public void stopTimer(){
-		t.cancel();
+		if (isTimerOn)
+			t.cancel();
 	}
 
 
