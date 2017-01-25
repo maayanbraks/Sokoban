@@ -92,7 +92,7 @@ public class SaveCommand extends GeneralCommand{
 			}
 			public void create() {
 				try {
-					MyXMLLevelSaver XML=new MyXMLLevelSaver();
+						MyXMLLevelSaver XML=new MyXMLLevelSaver();
 						XML.SaveLevel(new FileOutputStream(_path),_model.getLevel());
 					} catch (IOException e) {
 						System.out.println("coudnt make the save");

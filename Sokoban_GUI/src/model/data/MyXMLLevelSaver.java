@@ -13,6 +13,7 @@ import java.io.OutputStream;
 import common.Level2D;
 
 public class MyXMLLevelSaver implements LevelSaver {
+
 	public void SaveLevel(OutputStream out, Level2D lvl) throws IOException {
 		XMLEncoder xml=new XMLEncoder(out);
 		xml.writeObject(lvl);

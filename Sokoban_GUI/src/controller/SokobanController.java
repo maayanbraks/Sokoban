@@ -114,7 +114,7 @@ public class SokobanController  implements Observer {
 		private class ExitCommandCreator implements CommandCreator
 		{
 			public GeneralCommand createCommand() {
-				return new ExitCommand(_model);
+				return new ExitCommand(_model,_view,_controller);
 			}
 		}
 		private class FinishCommandCreator implements CommandCreator

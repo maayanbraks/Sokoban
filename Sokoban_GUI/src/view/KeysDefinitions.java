@@ -3,25 +3,23 @@ package view;
 import java.beans.XMLDecoder;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 
-import javafx.scene.input.KeyCode;
-
 public class KeysDefinitions {
-	
-	private HashMap<KeyCode, String> keys = new HashMap<KeyCode, String>();
-	
-	public KeysDefinitions() {
-		try {
-			XMLDecoder decoder = new XMLDecoder(new FileInputStream("Keys.xml"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	private HashMap<String, String> keys = new HashMap<String, String>();
+
+	public KeysDefinitions(InputStream is) {
+		XMLDecoder decoder = new XMLDecoder(is);
+		keys.put(((String)decoder.readObject()),"up");
+		keys.put(((String)decoder.readObject()),"down");
+		keys.put(((String)decoder.readObject()),"right");
+		keys.put(((String)decoder.readObject()),"left");
 	}
-	
-	public String getCommandFromKey(KeyCode key) {
-		return keys.get(key);
+
+	public String getCommandFromKey(String str) {
+		return keys.get(str);
 	}
-	
+
 }

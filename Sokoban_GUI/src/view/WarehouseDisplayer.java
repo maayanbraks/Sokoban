@@ -141,7 +141,6 @@ public class WarehouseDisplayer extends Canvas{
 
 			for (int i=0;i<warehouse.length;i++){
 				for (int j=0;j<warehouse[i].length;j++){
-
 					switch(warehouse[i][j]){
 					//box
 						case '@':
@@ -192,17 +191,10 @@ public class WarehouseDisplayer extends Canvas{
 						default:
 							gc.fillRect(j*w, i*h, w, h);
 					}
-
 				}
 			}
-
-
 		}
-
 	}
-
-
-
 
 
 

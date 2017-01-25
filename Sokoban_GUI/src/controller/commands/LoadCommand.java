@@ -72,74 +72,59 @@ public class LoadCommand extends GeneralCommand{
 	* @version 2D
 	*/
 	//TEXT FILE
-	private class TextLevelLoaderCreator implements LevelLoaderCreator{
-		Level2D newLevel;
+	private class TextLevelLoaderCreator extends LevelLoaderCreator{
 
 		public TextLevelLoaderCreator() {
-			newLevel=new Level2D();
+			super();
 		}
 
 		public void create() {
 			try {
-				newLevel=((new MyTextLevelLoader()).loadLevel(new FileInputStream(_path)));
+				this._newLevel=((new MyTextLevelLoader()).loadLevel(new FileInputStream(_path)));
 			}
 			catch (FileNotFoundException e) {
 				System.out.println("The file " + _path +" dosnt exist.");
-				newLevel=null;
+				this._newLevel=null;
 			}
-		}
-
-		public Level2D getNewLevel(){
-			return newLevel;
 		}
 	}
 
+
 	//Object File
-			private class ObjectLevelLoaderCreator implements LevelLoaderCreator{
-				Level2D newLevel;
+		private class ObjectLevelLoaderCreator extends LevelLoaderCreator{
+
 				public ObjectLevelLoaderCreator() {
-					newLevel=new Level2D();
+					super();
 				}
+
 				public void create() {
 					try {
-						newLevel=((new MyObjectLevelLoader()).loadLevel(new FileInputStream(_path)));
+						this._newLevel=((new MyObjectLevelLoader()).loadLevel(new FileInputStream(_path)));
 					}
 					catch (FileNotFoundException e) {
 						System.out.println("The file " + _path +" dosnt exist.");
-						newLevel=null;
+						this._newLevel=null;
 					}
 				}
-
-				public Level2D getNewLevel(){
-					return newLevel;
-				}
-			}
+		}
 
 
 	//XML File
-	private class XmlLevelLoaderCreator implements LevelLoaderCreator{
-		Level2D newLevel;
+	private class XmlLevelLoaderCreator extends LevelLoaderCreator{
 		public XmlLevelLoaderCreator() {
-			newLevel=new Level2D();
+			super();
 		}
+
 		public void create() {
 			try {
-				newLevel=((new MyXMLLevelLoader()).loadLevel(new FileInputStream(_path)));
+				this._newLevel=((new MyXMLLevelLoader()).loadLevel(new FileInputStream(_path)));
 			}
 			catch (FileNotFoundException e) {
-				System.out.println("The file " + _path +" dosnt exist.");
-				newLevel=null;
-				e.printStackTrace();
+				unknownPath(_path);
 			}
 		}
-
-
-		public Level2D getNewLevel(){
-			return newLevel;
-		}
-
-
-
 	}
+
+
 }
 
