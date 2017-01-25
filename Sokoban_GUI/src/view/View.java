@@ -17,7 +17,7 @@ public interface View {
 	void setStage(Stage primaryStage);
 	void closeStage();
 	void move(String str);
-
+	void stopTimer();
 
 //	void displayPosition(Position2D pos);
 

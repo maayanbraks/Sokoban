@@ -184,8 +184,8 @@ public class GUIController extends Observable implements View,Initializable{
 		if (_map!=null) {//fixxxxxxxxxxxxxxxxx t.cancel
 			System.out.println("SAdsad");
 			t.cancel();
-
 		}
+
 		this.setTimerCounter(0);
 
 		FileChooser fc=new FileChooser();
@@ -245,6 +245,10 @@ public class GUIController extends Observable implements View,Initializable{
 	@Override
 	public void setStage(Stage primaryStage) {
 		this._primaryStage=primaryStage;
+	}
+
+	public void stopTimer(){
+		t.cancel();
 	}
 
 

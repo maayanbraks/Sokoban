@@ -25,6 +25,7 @@ public class FinishCommand extends GeneralCommand{
 	}
 
 	public void execute() {
+		_view.stopTimer();
 		_view.setComment("You Won!");
 
 	}
