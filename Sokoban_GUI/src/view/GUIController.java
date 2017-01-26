@@ -197,6 +197,7 @@ public class GUIController extends Observable implements View,Initializable{
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML(*.xml)","*.xml"));
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Object(*.obj)","*.obj"));
 		File chosen=fc.showOpenDialog(null);
+
 		if (chosen!=null){
 			String path=chosen.getName();
 

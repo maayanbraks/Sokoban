@@ -136,7 +136,6 @@ public class WarehouseDisplayer extends Canvas{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-//test1548
 			gc.clearRect(0, 0, W, H);
 
 			for (int i=0;i<warehouse.length;i++){

@@ -35,8 +35,8 @@ public class MoveCommand extends GeneralCommand{
 
 		//init dest position
 		Position2D dest=new Position2D(_model.getLevel().getActors().get(0).getPos());
-		
-		
+
+
 
 		//Calculate the destination
 		switch(this._direction){
@@ -53,7 +53,7 @@ public class MoveCommand extends GeneralCommand{
 			dest.setX(dest.getX()+1);
 			break;
 		default:
-			System.out.println("This direction is unknown!!!\n" + "Please try again:");
+			setComment("This direction is unknown!!!\n" + "Please try again:");
 		}
 
 

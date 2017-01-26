@@ -12,12 +12,14 @@ import model.Model;
 
 public class GeneralCommand implements Command{
 	Model _model;
+	String _comment;
 
 	/**
 	* C'TOR
 	*/
 	public GeneralCommand(Model model) {
 		this._model=model;
+		this._comment=new String("command accepted");
 	}
 
 	/**
@@ -32,5 +34,13 @@ public class GeneralCommand implements Command{
 	*/
 	public void execute() {
 		//Just for the implement of 'Command'
+	}
+
+
+	public void setComment(String comment) {
+		_comment=comment;
+	}
+	public String getComment() {
+		return _comment;
 	}
 }

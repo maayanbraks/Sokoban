@@ -41,7 +41,6 @@ public class Controller{
 
 					} catch (InterruptedException e) {
 						System.out.println("queue exaption");
-						e.printStackTrace();
 					}
 				}
 			}

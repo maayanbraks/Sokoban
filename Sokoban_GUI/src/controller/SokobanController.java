@@ -33,7 +33,9 @@ public class SokobanController  implements Observer {
 	Model _model;
 	View _view;
 	Controller _controller;
-	public MyServer _server;
+
+	MyServer _server;
+	private String _comment;
 
 	/**
 	* C'TOR
@@ -43,12 +45,20 @@ public class SokobanController  implements Observer {
 		this._view=view;
 		this._controller = new Controller();
 		this._controller.start();
-		int port=1111;//POERRRTTTTTTTTTTTTTTTTTTTTTTTTT//////////////////////////////////////////
+
+		this._server=null;
+		this._comment="";
+
+		/*
+		int port=-1;//POERRRTTTTTTTTTTTTTTTTTTTTTTTTT//////////////////////////////////////////
 		if(port>=0){
 			this._server=new MyServer(port);
 			this._server.getClient().addObserver(this);
 		}
+		*/
+
 		initCommands();
+
 
 	}
 
@@ -60,14 +70,19 @@ public class SokobanController  implements Observer {
 		_hm.put("save",new SaveCommandCreator());
 		_hm.put("finish",new FinishCommandCreator());
 		_hm.put("exit",new ExitCommandCreator());
-		
+
 		_hm.put("serverDisplay", new ServerDisplayCommandCreator());
 	}
+
+
+
+
+
 
 	/**
 	* Separate the string to command and info about the command. Create the command
 	* @param str The command string (from Cli)
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	*/
 	public void createCommandGeneral(String str) throws InterruptedException{
 		String[] parts=str.split(" ");
@@ -77,30 +92,50 @@ public class SokobanController  implements Observer {
 		CommandCreator cc=_hm.get(this._command);
 
 		if (cc==null){
-			_server.setMsgToClient("Unknown command!!!!!");
+			this.setComment("Unknown command!!!!!");
 		}
 		else{
-			_server.setMsgToClient("Command accept!!! :) ");
+
 			GeneralCommand gc=cc.createCommand();
 			_controller.insertCommand(gc);
+
+			Thread.sleep(50);//waiting for comment update
+
+			this.setComment(gc.getComment());
 		}
 	}
 
 	public void update(Observable o, Object arg) {
-		
+
 		String str="";
 		str=(String)arg;
 		//_view.load();
 	//	System.out.println(arg + "Update");
-		
-		if ( (o==_server.getClient()) && (str.compareTo("display"))==0 )
+
+		if ( (this._server!=null)  && (str.compareTo("display"))==0 ){
 			str="serverDisplay";
-			
+		}
+
 		try {
 			this.createCommandGeneral(str);
-		} catch (InterruptedException e) {	}
-		
-		
+		} catch (InterruptedException e) {
+			System.out.println("Sokoban Controller InterruptedException in update()");
+		}
+	}
+
+	public void setServer(MyServer server){
+		this._server=server;
+	}
+
+	public void setComment(String comment) throws InterruptedException{
+		this._comment=comment;
+		if(this._server!=null)
+			_server.getClient().addMsg(_comment);
+			//_server.setMsgToClient(comment);
+	}
+
+	public String getComment(){
+		return this._comment;
 	}
 
 
@@ -146,7 +181,7 @@ public class SokobanController  implements Observer {
 				return new FinishCommand(_view,_model);
 			}
 		}
-		
+
 		private class ServerDisplayCommandCreator implements CommandCreator
 		{
 			public GeneralCommand createCommand() {

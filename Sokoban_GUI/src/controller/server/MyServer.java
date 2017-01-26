@@ -19,17 +19,18 @@ public class MyServer {
 			this.stop=false;
 			this.hasClient=false;
 		}
-		
-		
+
+
+		/*
 		public void setMsgToClient(String msg) throws InterruptedException{
 			ch.addMsg(msg);
-		}
-		
+		}*/
+
 		public String getMsgToClient(){
 			return this.msgToClient;
 		}
-	
-		private void runServer() throws Exception {
+
+		private void runServer() throws IOException  {
 			ServerSocket server=new ServerSocket(1234);//port
 			int counter=0;
 			server.setSoTimeout(1000);
@@ -42,7 +43,7 @@ public class MyServer {
 					ch.handleClient(aClient.getInputStream(), aClient.getOutputStream());
 				//	System.out.println("after handleClient func");
 					//System.out.println("1");
-	
+
 					//aClient.getInputStream().close();
 					//aClient.getOutputStream().close();
 					aClient.close();
@@ -54,8 +55,7 @@ public class MyServer {
 			}
 			server.close(); //we should wait for all threads before closing!
 		}
-	
-	
+
 		public void start(){
 			new Thread(new Runnable() {
 				public void run() {
@@ -67,14 +67,13 @@ public class MyServer {
 				}
 			}).start();
 		}
-	
-		
+
 		public void stop(){
 			this.ch.stop();
 			this.stop=true;
 		}
-	
-	
+
+
 		public MyClientHandler getClient() {
 			return this.ch;
 		}

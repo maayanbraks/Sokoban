@@ -1,6 +1,8 @@
 package model;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Observable;
 
@@ -33,9 +35,6 @@ public class MyModel extends Observable implements Model{
 
 	@Override
 	public void move(Position2D dest) {
-
-
-
 		Actor actor=_lvl.getActors().get(0);
 		Position2D old=actor.getPos();
 
@@ -56,7 +55,6 @@ public class MyModel extends Observable implements Model{
 				actor.move(old, dest,getLevel());
 
 				this._lvl.setCounter(this._lvl.getCounter()+1);
-				//System.out.println(this._lvl.getCounter());
 			}
 			else{
 				System.out.println("You can't move there!\n" +
@@ -85,22 +83,28 @@ public class MyModel extends Observable implements Model{
 
 	@Override
 	public void load(LevelLoaderCreator lc) {
+		Level2D newLevel=new Level2D();
 		if (lc==null){
 			this.setLevel(new Level2D());
-			System.out.println("There is a problem with level loader./n" +
+			lc.setComment("There is a problem with level loader./n" +
 								"Now the level is NULL");
 		}
 		else{
-			//_lvl=null;
+			try {
 
-			lc.create();
-			_lvl=lc.getNewLevel();
-			//this.setLevel(((LevelCreator)lc).getNewLevel());
+				newLevel=((lc.create()).loadLevel(new FileInputStream(lc.getPath())));
+				System.out.println("OK");
+			}
+			catch (FileNotFoundException e) {
+				lc.unknownPath();
+				lc.setComment("unknown file");
+				newLevel=new Level2D();
+			}
+			_lvl=newLevel;
 		}
 
 		this.setChanged();
 		this.notifyObservers("display");
-
 	}
 
 	@Override

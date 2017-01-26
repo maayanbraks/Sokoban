@@ -18,7 +18,6 @@ public class DisplayCommand extends GeneralCommand{
 	public DisplayCommand(View view, Model model) {
 		super(model);
 		this._view=view;
-
 	}
 
 	public void execute(){

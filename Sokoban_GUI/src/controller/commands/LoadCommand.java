@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 import common.Level2D;
 import model.Model;
+import model.data.LevelLoader;
 import model.data.MyObjectLevelLoader;
 import model.data.MyTextLevelLoader;
 import model.data.MyXMLLevelLoader;
@@ -27,6 +28,7 @@ public class LoadCommand extends GeneralCommand{
 	public LoadCommand(String path,Model model) {
 		super(model);
 		this._path=path;
+
 		this._typeFile=getTypeOfFile(path);//help func
 		//Make HashMap
 		_hm.put("txt",new TextLevelLoaderCreator());
@@ -36,8 +38,14 @@ public class LoadCommand extends GeneralCommand{
 
 	public void execute() {
 		LevelLoaderCreator lc=_hm.get(_typeFile);
-		_model.load(lc);
-		System.out.println(_model.getLevel().getBoxes().size());
+		if(lc==null)
+			setComment("type file?!?!?!!?");
+		else{
+			_model.load(lc);
+			this.setComment(lc.getComment());
+		}
+
+
 
 		/*
 		if (lc==null){
@@ -75,17 +83,25 @@ public class LoadCommand extends GeneralCommand{
 	private class TextLevelLoaderCreator extends LevelLoaderCreator{
 
 		public TextLevelLoaderCreator() {
-			super();
+			super(_path);
+
 		}
 
+		/*
 		public void create() {
 			try {
 				this._newLevel=((new MyTextLevelLoader()).loadLevel(new FileInputStream(_path)));
 			}
 			catch (FileNotFoundException e) {
-				System.out.println("The file " + _path +" dosnt exist.");
+				setComment("The file " + _path +" dosnt exist.");
 				this._newLevel=null;
 			}
+		}*/
+
+		@Override
+		public LevelLoader create() {
+
+			return new MyTextLevelLoader();
 		}
 	}
 
@@ -94,17 +110,23 @@ public class LoadCommand extends GeneralCommand{
 		private class ObjectLevelLoaderCreator extends LevelLoaderCreator{
 
 				public ObjectLevelLoaderCreator() {
-					super();
-				}
-
+					super(_path);
+					}
+/*
 				public void create() {
 					try {
 						this._newLevel=((new MyObjectLevelLoader()).loadLevel(new FileInputStream(_path)));
 					}
 					catch (FileNotFoundException e) {
-						System.out.println("The file " + _path +" dosnt exist.");
+						setComment("The file " + _path +" dosnt exist.");
 						this._newLevel=null;
+
 					}
+				}
+				*/
+
+				public LevelLoader create() {
+					return new MyObjectLevelLoader();
 				}
 		}
 
@@ -112,16 +134,23 @@ public class LoadCommand extends GeneralCommand{
 	//XML File
 	private class XmlLevelLoaderCreator extends LevelLoaderCreator{
 		public XmlLevelLoaderCreator() {
-			super();
-		}
-
+			super(_path);
+			}
+/*
 		public void create() {
 			try {
 				this._newLevel=((new MyXMLLevelLoader()).loadLevel(new FileInputStream(_path)));
 			}
 			catch (FileNotFoundException e) {
+				setComment("The file " + _path +" dosnt exist.");
 				unknownPath(_path);
+
 			}
+		}*/
+
+		public LevelLoader create() {
+			setComment("command accepted");
+			return new MyXMLLevelLoader();
 		}
 	}
 

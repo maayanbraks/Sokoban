@@ -14,6 +14,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 import com.sun.media.jfxmedia.events.NewFrameEvent;
 
@@ -41,7 +42,6 @@ public class MyClientHandler extends Observable implements ClientHandler{
         		"-Exit\n" +
         		"Please enter your selection:");
 		do {
-
 			str=new BufferedReader(new InputStreamReader(inFromClient)).readLine();
 	    	str=str.toLowerCase();
 	    	//System.out.println(str);
@@ -52,10 +52,14 @@ public class MyClientHandler extends Observable implements ClientHandler{
 	    	else {
 			setChanged();
 			notifyObservers(str);
-			
-			/////////////////////////////////////////////////TO DO LIST MAYBE
+
 			while(!_msg.isEmpty()){
-					ps.println(_msg.poll());
+					try {
+						ps.println(_msg.poll(1, TimeUnit.SECONDS));
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 	    	}
 //GO TO SokobanController
@@ -74,7 +78,7 @@ public class MyClientHandler extends Observable implements ClientHandler{
 		public void stop(){
 			this.stop=true;
 		}
-		
+
 		public void addMsg(String msg) throws InterruptedException{
 			_msg.put(msg);
 		}
@@ -85,7 +89,7 @@ public class MyClientHander extends Observable implements ClientHandler {
 	private ArrayBlockingQueue<String> queue;
 	private volatile boolean hasClient;
 	private boolean keepRunning;
-	
+
 	public MyClientHandler() {
 		queue=new ArrayBlockingQueue<String>(200);
 		this.hasClient=true;
@@ -99,7 +103,7 @@ public class MyClientHander extends Observable implements ClientHandler {
 		BufferedReader readFromServer=new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter writeToClient=new PrintWriter(out);
 		PrintWriter writeToServer=new PrintWriter(System.out);
-		
+
 		Thread t1=aSyncReadInputAndSent(readFromClient, writeToServer, "cya");
 		Thread t3=aSyncSendToClient(writeToClient);
 		t1.join();
@@ -116,7 +120,7 @@ public class MyClientHander extends Observable implements ClientHandler {
 	}
 	private Thread aSyncSendToClient(PrintWriter writeToClient) {
 		Thread t=new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				sendToClient(writeToClient);
@@ -146,7 +150,7 @@ public class MyClientHander extends Observable implements ClientHandler {
 					notifyObservers(line);
 					out.flush();
 				}
-				
+
 					//end of while
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -162,9 +166,9 @@ public class MyClientHander extends Observable implements ClientHandler {
 			}
 		});
 		t.start();
-		
+
 		return t;
-		
+
 	}
 
 	private void sendToClient(PrintWriter writeToClient){
@@ -178,10 +182,10 @@ public class MyClientHander extends Observable implements ClientHandler {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
-	
+
 	public void stop(){
 		this.hasClient=false;
 	}
@@ -195,7 +199,7 @@ public class MyClientHander extends Observable implements ClientHandler {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 
 */

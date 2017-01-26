@@ -67,7 +67,7 @@ public class SaveCommand extends GeneralCommand{
 					MyTextLevelSaver text=new MyTextLevelSaver();
 						text.SaveLevel(new FileOutputStream(_path),_model.getLevel());
 					} catch (IOException e) {
-						System.out.println("coudnt make the save");
+						setComment("coudnt make the save");
 					}
 				}
 			}
@@ -80,7 +80,7 @@ public class SaveCommand extends GeneralCommand{
 					Object.SaveLevel(new FileOutputStream(_path),_model.getLevel());
 					}
 				catch (IOException e) {
-						System.out.println("coudnt make the save");
+						setComment("coudnt make the save");
 					}
 			}
 		}
@@ -95,7 +95,7 @@ public class SaveCommand extends GeneralCommand{
 						MyXMLLevelSaver XML=new MyXMLLevelSaver();
 						XML.SaveLevel(new FileOutputStream(_path),_model.getLevel());
 					} catch (IOException e) {
-						System.out.println("coudnt make the save");
+						setComment("coudnt make the save");
 					}
 			}
 		}
