@@ -1,42 +1,30 @@
+/**
+* This class responsible to manage the GUI
+* @author Maayan & Eden
+*/
+
 package view;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.sun.javafx.scene.layout.region.BackgroundSizeConverter;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -52,7 +40,7 @@ public class GUIController extends Observable implements View,Initializable{
 	@FXML
 	Text timer;
 	@FXML
-	Text comment;
+	Text title;
 	StringProperty CounterTimer;
 	Timer t;
 	String musicFile="./resources/media/trololo.mp3";
@@ -79,7 +67,6 @@ public class GUIController extends Observable implements View,Initializable{
 
 	public void startCounter()
 	{
-
 		t=new  Timer();
 		t.scheduleAtFixedRate(new TimerTask() {
 			@Override
@@ -108,9 +95,13 @@ public class GUIController extends Observable implements View,Initializable{
 	}
 
 
-	public void setComment(String comment) {
+	public void setTitle(String comment) {
 		String str=String.valueOf(comment);
-		this.comment.setText(str);
+		this.title.setText(str);
+	}
+
+	public void setComment(String comment){
+		String str=String.valueOf(comment);
 	}
 
 	@Override
@@ -120,10 +111,7 @@ public class GUIController extends Observable implements View,Initializable{
 		this.setTimerCounter(0);
 		timer.textProperty().bind(CounterTimer);
 
-//Background
-//		BackgroundFill fill=new BackgroundFill(Color.DARKSEAGREEN, CornerRadii.EMPTY, Insets.EMPTY);
-//		this.bp.setBackground(new Background(fill));
-//Background - END
+
 //music
 		mp.play();
 //music -end
@@ -132,7 +120,6 @@ public class GUIController extends Observable implements View,Initializable{
 			this.keysDefinitions = new KeysDefinitions(new FileInputStream("resources/settings/DefaultKeys.xml"));
 
 		} catch (FileNotFoundException e1) {
-			System.out.println("asdasd");
 			setKeys();
 		}
 
@@ -151,22 +138,19 @@ public class GUIController extends Observable implements View,Initializable{
 
 //Keys settings functions
 	public void setKeys(){
-
-		//////////////////////////////////////////////////////////////////TO OD path for setting
-	//	KeysSetter sk=new KeysSetter();
 		try {
 			this.keysDefinitions = new KeysDefinitions(new FileInputStream("resources/settings/Keys.xml"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 	}
 
 	@Override
 	public void move(String str) {
 
+		setComment(":)");
 		if(_map!=null){
-			String command = this.keysDefinitions.getCommandFromKey(str);//////////name 'command'---------------------
+			String command = this.keysDefinitions.getCommandFromKey(str);
 			if(command!=null){
 				warehouseDisplayer.setActorFileName("./resources/images/"+command+".png");
 				setChanged();
@@ -182,9 +166,9 @@ public class GUIController extends Observable implements View,Initializable{
 	}
 
 	public void load(){
-		this.comment.setText("SOKOBAN");//////////this is ok?!!??!!?
-		if (_map!=null) {//fixxxxxxxxxxxxxxxxx t.cancel
-			System.out.println("SAdsad");
+		this.title.setText("SOKOBAN");
+		if (_map!=null) {
+
 			t.cancel();
 		}
 
@@ -226,17 +210,15 @@ public class GUIController extends Observable implements View,Initializable{
 		File chosen=fc.showSaveDialog(null);
 		if (chosen!=null){
 			String path=chosen.getName();
-			System.out.println(path);
-
 			setChanged();
 			notifyObservers("save ./resources/levels/"+path);
-
 		}
 	}
 
 
 	@Override
 	public void exit() {
+		setComment("Bye");
 		setChanged();
 		notifyObservers("exit");
 

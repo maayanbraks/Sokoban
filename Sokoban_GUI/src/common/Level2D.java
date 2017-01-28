@@ -194,20 +194,6 @@ public class Level2D implements Serializable{
 		}
 	}
 
-///////////////////////////////////////////////////////////////////////////////////
-	//HELP USSS REMOVEEEEEEEEEEEEEEEEEEEEEE
-		public void print() {
-			for (int i=0;i<_height;i++){
-				System.out.println();
-				for (int j=0;j<_width;j++){
-					System.out.print(_map[i][j].getCh());
-				}
-			}
-		System.out.println();
-		}
-
-//////////////////////////////////////////////////////////////////////////////////////
-
 	/**
 	* This function change item in specific position
 	*/

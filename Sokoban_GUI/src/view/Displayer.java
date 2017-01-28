@@ -11,7 +11,7 @@ import model.data.Position2D;
 
 public class Displayer {
 	/**
-	* This function print to the screen
+	* Print to the screen
 	*/
 	public void print(Level2D _lvl) {
 		for (int i=0;i<_lvl.getHeight();i++){

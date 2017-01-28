@@ -1,8 +1,14 @@
+/**
+* This class is the game model
+* @author Maayan & Eden
+*/
+
 package model;
 
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Observable;
 
@@ -12,6 +18,7 @@ import controller.commands.LevelSaverCreator;
 import model.data.Actor;
 import model.data.Box;
 import model.data.Item;
+import model.data.MyTextLevelSaver;
 import model.data.Position2D;
 import model.policy.MySokobanPolicy;
 
@@ -68,10 +75,6 @@ public class MyModel extends Observable implements Model{
 
 
 			if (_msp.isFinished()){
-				System.out.println("\n"
-						+ "WOW!!\n"
-						+ "You have finished the map!");
-
 				this.setChanged();
 				this.notifyObservers("finish");
 			}
@@ -93,7 +96,6 @@ public class MyModel extends Observable implements Model{
 			try {
 
 				newLevel=((lc.create()).loadLevel(new FileInputStream(lc.getPath())));
-				System.out.println("OK");
 			}
 			catch (FileNotFoundException e) {
 				lc.unknownPath();
@@ -115,14 +117,17 @@ public class MyModel extends Observable implements Model{
 			System.out.println("There is a problem with level saver.\nNow the level is NULL");
 		}
 		else{
-			ls.create();
+			try {
+					ls.create().SaveLevel(new FileOutputStream(ls.getPath()),_lvl);
+				} catch (IOException e) {
+					ls.setComment("coudnt make the save");
+				}
 		}
-
 	}
+
 
 	@Override
 	public void exit() {
-		//System.out.println("Exiting program,TY");
 		System.out.close();
 
 		try {
@@ -130,7 +135,6 @@ public class MyModel extends Observable implements Model{
 			System.exit(0);
 		}
 		catch (IOException e) {
-			System.out.println("Somthing went wrong with EXIT...");
 		}
 
 	}

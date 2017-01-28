@@ -1,3 +1,7 @@
+/**
+* This class responsible to run commands
+* @author Maayan & Eden
+*/
 package controller;
 
 import java.util.concurrent.ArrayBlockingQueue;

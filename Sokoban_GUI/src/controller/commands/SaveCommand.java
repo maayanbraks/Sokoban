@@ -11,12 +11,13 @@ import java.util.HashMap;
 
 import common.Level2D;
 import model.Model;
+import model.data.LevelSaver;
 import model.data.MyObjectLevelSaver;
+import model.data.MyTextLevelLoader;
 import model.data.MyTextLevelSaver;
 import model.data.MyXMLLevelSaver;
 
 public class SaveCommand extends GeneralCommand{
-	   // Level2D _lvl; change!!!!!!!!!!!!!!!!!!
 		String _path;
 		String _typeFile;
 		HashMap<String,LevelSaverCreator> _hm=new HashMap<String,LevelSaverCreator>();
@@ -29,7 +30,7 @@ public class SaveCommand extends GeneralCommand{
 			_hm.put("txt",new TextLevelSaver());
 			_hm.put("xml",new XMLLevelSaver());
 			_hm.put("obj",new ObjectLevelSaver());
-			//this._lvl=lvl; change!!!!!!!!!!!!!!!!!!
+
 
 		}
 
@@ -41,65 +42,52 @@ public class SaveCommand extends GeneralCommand{
 		//HELP FUNCTION - END
 
 
-		public void execute() {//run the Hash
-
-
+		public void execute() {
 			LevelSaverCreator ls=_hm.get(_typeFile);
-			_model.save(ls);
-			/*
-			if (ls==null){
-				this._model.setLevel(null);
-				System.out.println("There is a problem with level saver.\nNow the level is NULL");
-			}
+			if(ls==null)
+				setComment("type file?!?!?!!?");
 			else{
-				ls.create();
-			}  */
+				_model.save(ls);
+				this.setComment(ls.getComment());
+			}
+
 		}
 
 		//TEXT FILE
-		private class TextLevelSaver implements LevelSaverCreator{
+		private class TextLevelSaver extends LevelSaverCreator{
 
 			public TextLevelSaver() {
-			}
-			//public Level2D create() {
-			public void create() {
-				try {
-					MyTextLevelSaver text=new MyTextLevelSaver();
-						text.SaveLevel(new FileOutputStream(_path),_model.getLevel());
-					} catch (IOException e) {
-						setComment("coudnt make the save");
-					}
-				}
+				super(_path);
 			}
 
+			public LevelSaver create() {
+				return new MyTextLevelSaver();
 
-		private	class ObjectLevelSaver implements LevelSaverCreator{
-			public void create(){
-				try {
-					MyObjectLevelSaver Object=new MyObjectLevelSaver();
-					Object.SaveLevel(new FileOutputStream(_path),_model.getLevel());
-					}
-				catch (IOException e) {
-						setComment("coudnt make the save");
-					}
+			}
+		}
+
+//OBJECT
+		private	class ObjectLevelSaver extends LevelSaverCreator{
+			public ObjectLevelSaver() {
+				super(_path);
+			}
+			public LevelSaver create(){
+				return new MyObjectLevelSaver();
 			}
 		}
 
 		//XML File
-		private	class XMLLevelSaver implements LevelSaverCreator{
+		private	class XMLLevelSaver extends LevelSaverCreator{
 
 			public XMLLevelSaver() {
+				super(_path);
 			}
-			public void create() {
-				try {
-						MyXMLLevelSaver XML=new MyXMLLevelSaver();
-						XML.SaveLevel(new FileOutputStream(_path),_model.getLevel());
-					} catch (IOException e) {
-						setComment("coudnt make the save");
-					}
+			public LevelSaver create() {
+				return new MyXMLLevelSaver();
 			}
 		}
-
-
-
 }
+
+
+
+

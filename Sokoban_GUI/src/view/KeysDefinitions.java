@@ -1,8 +1,11 @@
+/**
+* This class responsible to get keys from XML and update the ways
+* @author Maayan & Eden
+*/
+
 package view;
 
 import java.beans.XMLDecoder;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
 

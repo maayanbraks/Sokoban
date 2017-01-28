@@ -1,3 +1,7 @@
+/**
+* This class responsible on the level items presentation
+* @author Maayan & Eden
+*/
 package view;
 
 import java.io.FileInputStream;
@@ -133,7 +137,6 @@ public class WarehouseDisplayer extends Canvas{
 				target=new Image(new FileInputStream(targetFileName.get()));
 				space=new Image(new FileInputStream(spaceFileName.get()));
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			gc.clearRect(0, 0, W, H);

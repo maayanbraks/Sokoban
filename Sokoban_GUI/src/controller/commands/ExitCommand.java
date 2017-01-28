@@ -5,9 +5,7 @@
 
 package controller.commands;
 
-import java.io.IOException;
 
-import common.Level2D;
 import controller.Controller;
 import javafx.application.Platform;
 import model.Model;
@@ -43,18 +41,5 @@ public class ExitCommand extends GeneralCommand{
 		});
 
 		_controller.stop();
-		//System.exit(0);//////////////////////////////check Exit!!!!!!!!!!!!!!!!!!!-=-s-bdsbfdsbfdsbb
-
-		/*
-		System.out.println("Exiting program,TY");
-		System.out.close();
-
-		try {
-			System.in.close();
-			System.exit(0);
-		}
-		catch (IOException e) {
-			System.out.println("Somthing went wrong with EXIT...");
-		}  */
 	}
 }

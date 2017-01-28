@@ -6,21 +6,15 @@
 
 package controller.commands;
 
-import common.Level2D;
+
 import model.Model;
-import model.data.Actor;
-import model.data.Box;
-import model.data.Item;
+
 import model.data.Position2D;
-import model.policy.MySokobanPolicy;
+
 
 
 public class MoveCommand extends GeneralCommand{
 	String _direction;
-
-//	MySokobanPolicy _msp;
-//	Position2D _old;
-//	Actor _actor;
 
 /**
 * C'TOR
@@ -55,10 +49,6 @@ public class MoveCommand extends GeneralCommand{
 		default:
 			setComment("This direction is unknown!!!\n" + "Please try again:");
 		}
-
-
-	//why????	dest.setWasTarget(_model.getLevel().getItemInPlace(dest).getPos().isWasTarget());//TargetBox
-
 
 		//END Calculate
 

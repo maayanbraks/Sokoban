@@ -1,13 +1,11 @@
 /**
-* This class responsible to run the 'exit' command
+* This class responsible on the finsh command
 * @author Maayan & Eden
 */
 
 package controller.commands;
 
-import java.io.IOException;
 
-import common.Level2D;
 import model.Model;
 import view.View;
 
@@ -27,6 +25,6 @@ public class FinishCommand extends GeneralCommand{
 	public void execute() {
 		setComment("You Won!");
 		_view.stopTimer();
-		_view.setComment(_comment);
+		_view.setTitle("You Won!");
 	}
 }

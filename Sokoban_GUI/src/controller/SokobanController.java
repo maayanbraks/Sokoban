@@ -1,5 +1,5 @@
 /**
-* This class get the command string from 'Cli' Class and run it
+* This is the game controller
 * @author Maayan & Eden
 */
 
@@ -49,14 +49,6 @@ public class SokobanController  implements Observer {
 		this._server=null;
 		this._comment="";
 
-		/*
-		int port=-1;//POERRRTTTTTTTTTTTTTTTTTTTTTTTTT//////////////////////////////////////////
-		if(port>=0){
-			this._server=new MyServer(port);
-			this._server.getClient().addObserver(this);
-		}
-		*/
-
 		initCommands();
 
 
@@ -73,11 +65,6 @@ public class SokobanController  implements Observer {
 
 		_hm.put("serverDisplay", new ServerDisplayCommandCreator());
 	}
-
-
-
-
-
 
 	/**
 	* Separate the string to command and info about the command. Create the command
@@ -109,8 +96,6 @@ public class SokobanController  implements Observer {
 
 		String str="";
 		str=(String)arg;
-		//_view.load();
-	//	System.out.println(arg + "Update");
 
 		if ( (this._server!=null)  && (str.compareTo("display"))==0 ){
 			str="serverDisplay";
@@ -119,7 +104,6 @@ public class SokobanController  implements Observer {
 		try {
 			this.createCommandGeneral(str);
 		} catch (InterruptedException e) {
-			System.out.println("Sokoban Controller InterruptedException in update()");
 		}
 	}
 

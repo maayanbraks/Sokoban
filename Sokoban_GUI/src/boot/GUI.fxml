@@ -19,9 +19,6 @@
 
    <center>
 	<WarehouseDisplayer   fx:id="warehouseDisplayer" height="400.0" width="400.0" BorderPane.alignment="CENTER" actorFileName="./resources/images/down.png" boxFileName="./resources/images/box.png" spaceFileName="./resources/images/space2_bright.png" targetFileName="./resources/images/target_green.png" wallFileName="./resources/images/wall2.png" backgroundFileName="./resources/images/weed.jpg"/>
-	<!-- <effect>
-            <DropShadow height="100" radius="80" spread="0.31" width="100" />
-	</effect> -->
    </center>
    <right>
       <AnchorPane prefHeight="404.0" prefWidth="63.0" BorderPane.alignment="CENTER">
@@ -54,32 +51,23 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="New Game">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="N" control="ANY" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
                   <MenuItem mnemonicParsing="false" onAction="#load" text="Load">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="L" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
                   <MenuItem mnemonicParsing="false" onAction="#save" text="Save">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="S" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
               <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit">
                      <accelerator>
-                        <KeyCodeCombination alt="ANY" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                        <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#setKeys" text="set keys" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#setKeys" text="W,A,S,D Keys" />
             </items>
           </Menu>
         </menus>
@@ -92,7 +80,7 @@
       <AnchorPane prefHeight="393.0" prefWidth="67.0" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <Text fx:id="comment" stroke="BLACK" strokeWidth="2.0" text="SOKOBAN" textAlignment="CENTER" wrappingWidth="294.6337890625" BorderPane.alignment="CENTER">
+      <Text fx:id="title" stroke="BLACK" strokeWidth="2.0" text="SOKOBAN" textAlignment="CENTER" wrappingWidth="294.6337890625" BorderPane.alignment="CENTER">
          <font>
             <Font name="Bauhaus 93" size="52.0" />
          </font>

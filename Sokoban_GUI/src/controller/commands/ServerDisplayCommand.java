@@ -26,21 +26,9 @@ public class ServerDisplayCommand extends GeneralCommand{
 	public void execute(){
 		char[][] map=_model.getLevel().toChar();
 		setComment(matToString(map));
-
-
-		/*
-		try {
-			_server.setMsgToClient(matToString(map));
-		} catch (InterruptedException e) {
-			System.out.println("ServerDisplay problem");
-		}
-		/*/
-
-		//WarehouseDisplayer warehouseDisplayer= new WarehouseDisplayer();
-		//warehouseDisplayer.setWarehouse(map);
-		//view.WarehouseDisplayer.setWarehouse(map);
 	}
 
+//help us to change map from char[][] to string
 	public String matToString(char [][]map){
 		if (map!=null)
 		{
