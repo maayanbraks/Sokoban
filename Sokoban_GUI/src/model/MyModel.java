@@ -79,10 +79,6 @@ public class MyModel extends Observable implements Model{
 			}
 		}
 	}
-
-
-
-
 	@Override
 	public void load(LevelLoaderCreator lc) {
 		if (lc==null){
@@ -130,9 +126,5 @@ public class MyModel extends Observable implements Model{
 		}
 
 	}
-
-
-
-
 
 }

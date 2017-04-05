@@ -109,7 +109,12 @@ public class GUIController extends Observable implements View,Initializable{
 	public void move(KeyEvent event) {
 
 		if(_map!=null){
+		//	System.out.println(event.getCode());
 			String command = keysDefinitions.getCommandFromKey(event.getCode());
+			//System.out.println(command);
+			setChanged();
+			notifyObservers(command);
+			/*
 					if(event.getCode() == KeyCode.UP){
 						setChanged();
 						notifyObservers("move up");
@@ -129,6 +134,7 @@ public class GUIController extends Observable implements View,Initializable{
 						setChanged();
 						notifyObservers("move right");
 					}
+					*/
 
 				}
 	}

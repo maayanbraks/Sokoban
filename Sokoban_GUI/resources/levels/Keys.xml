@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_121" class="java.beans.XMLDecoder">
+ <string>W</string>
+ <string>DOWN</string>
+ <string>LEFT</string>
+ <string>RIGHT</string>
+</java>

@@ -7,16 +7,22 @@
 package model.data;
 
 import java.beans.XMLEncoder;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
 import common.Level2D;
+import javafx.scene.input.KeyCode;
 
 public class MyXMLLevelSaver implements LevelSaver {
 	public void SaveLevel(OutputStream out, Level2D lvl) throws IOException {
 		XMLEncoder xml=new XMLEncoder(out);
-		xml.writeObject(lvl);
-		XMLSaver(xml,lvl);
+		//xml.writeObject(lvl);
+		//XMLSaver(xml,lvl);
+		xml.writeObject("UP");
+		xml.writeObject("DOWN");
+		xml.writeObject("LEFT");
+		xml.writeObject("RIGHT");
 		xml.close();
 	}
 
