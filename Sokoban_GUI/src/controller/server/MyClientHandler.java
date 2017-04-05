@@ -16,64 +16,55 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+public class MyClientHandler extends Observable implements ClientHandler {
 
-public class MyClientHandler extends Observable implements ClientHandler{
-
-	private boolean stop=false;
-	private BlockingQueue<String> _msg =  new ArrayBlockingQueue<String>(10);
-	private PrintStream ps;
+	private boolean stop = false;
+	private BlockingQueue<String> _msg = new ArrayBlockingQueue<String>(10);
+	private /*PrintWriter (Eli's solution)*/ PrintStream ps;
 
 	@Override
 	public void handleClient(InputStream inFromClient, OutputStream outToClient) throws IOException {
-		//Scanner scanner = new Scanner(System.in);
-		//BufferedWriter ps=new BufferedWriter(new OutputStreamWriter(outToClient));
-		ps=new PrintStream(outToClient);
-		String str="";
-        ps.println("\tMenu Options\n" +
-        		"Enter:\n" +
-        		"-Load file name\n" +
-        		"-Display\n" +
-        		"-Move up/down/left/right\n" +
-        		"-Save file name\n" +
-        		"-Exit\n" +
-        		"Please enter your selection:");
+		// Scanner scanner = new Scanner(System.in);
+		// BufferedWriter ps=new BufferedWriter(new
+		// OutputStreamWriter(outToClient));
+		ps = new PrintStream(outToClient);
+		String str = "";
+		ps.println("\tMenu Options\n" + "Enter:\n" + "-Load file name\n" + "-Display\n" + "-Move up/down/left/right\n"
+				+ "-Save file name\n" + "-Exit\n" + "Please enter your selection:");
 		do {
-			str=new BufferedReader(new InputStreamReader(inFromClient)).readLine();
-	    	str=str.toLowerCase();
-	    	if (str.compareTo("exit")==0) {
-	    		ps.println("bye");
+			str = new BufferedReader(new InputStreamReader(inFromClient)).readLine();
+			str = str.toLowerCase();
+			if (str.compareTo("exit") == 0) {
+				ps.println("bye");
 
-	    	}
-	    	else {
-			setChanged();
-			notifyObservers(str);
+			}
+			else {
+				setChanged();
+				notifyObservers(str);
 
-			while(!_msg.isEmpty()){
+				while (!_msg.isEmpty()) {
 					try {
 						ps.println(_msg.poll(1, TimeUnit.SECONDS));
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
-	    	}
-//GO TO SokobanController
+			}
+			// GO TO SokobanController
 
-			}while((str.compareTo("exit")!=0) && (!this.stop));
+		} while ((str.compareTo("exit") != 0) && (!this.stop));
 	}
 
-
-		public PrintStream getPs() {
+	public PrintStream getPs() {
 		return ps;
 	}
 
+	public void stop() {
+		this.stop = true;
+	}
 
-		public void stop(){
-			this.stop=true;
-		}
-
-		public void addMsg(String msg) throws InterruptedException{
-			_msg.put(msg);
-		}
+	public void addMsg(String msg) throws InterruptedException {
+		_msg.put(msg);
+	}
 
 }

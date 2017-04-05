@@ -27,7 +27,7 @@ public class Controller{
 		try {
 			queue.put(command);
 		} catch (InterruptedException e) {
-			System.out.println("instercommand exce[tion");
+			System.out.println("instercommand exception");
 			e.printStackTrace();
 		}
 	}
